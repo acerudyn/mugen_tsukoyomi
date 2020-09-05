@@ -98,7 +98,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </head>
 
-<body oncontextmenu="return false;">
+<body id="body" oncontextmenu="return false;">
   <!-- disbale right click -->
 
 	<img class="img-responsive center-block bulan" src="images/moon.png" alt="moon light">
@@ -122,10 +122,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="js/minicart.min.js"></script>
 	<!-- main slider-banner -->
 	<script src="js/skdslider.min.js"></script>
-	<link href="css/skdslider.css" rel="stylesheet">
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 	<script type="text/javascript">
 		$(document).ready(function() {
+
+			// swal("Genjutsu!", "Click the moon to activate Mugen Tsukuyomi!", "warning");
+			swal("Genjutsu!", "Click button 'OK' to activate Mugen Tsukuyomi!", "warning");
 
 		/* disable Right Click F12 Ctrl + Shift + I Ctrl + Shift + J Ctrl + U */
     document.onkeydown = function(e) {
@@ -146,7 +149,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			$('.bulan-merah').hide();
 			$('.clouds2').hide();
 
-			// get audio source
+			// for user google chrome click first
+			$("#body").click(function(){
+					// get audio source
+					var audio  = document.createElement("audio");
+					audio.src  = "sound/ost.mp3";
+					audio.play();
+
+					// show mugen tsukoyomi
+					setTimeout(function() {
+						$('.bulan').hide();
+						$('.bulan-merah').show();
+						$('.clouds').hide();
+						$('.clouds2').show();
+					}, 3000);
+
+					// hide mugen tsukoyomi after end music
+					audio.onended = function() {
+							$('.bulan').show();
+							$('.bulan-merah').hide();
+							$('.clouds').show();
+							$('.clouds2').hide();
+					};
+
+			});
+
+			/* get audio source
 			var audio  = document.createElement("audio");
 			audio.src  = "sound/ost.mp3";
 
@@ -169,7 +197,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				$('.bulan-merah').hide();
 				$('.clouds').show();
 				$('.clouds2').hide();
-			}, 126600);
+			}, 126600); */
 
 		});
 	</script>

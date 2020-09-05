@@ -98,7 +98,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </head>
 
-<body>
+<body oncontextmenu="return false;">
+  <!-- disbale right click -->
 
 	<img class="img-responsive center-block bulan" src="images/moon.png" alt="moon light">
 	<img class="img-responsive center-block bulan-merah" src="images/mugen.png" alt="mugen tsukuyomi">
@@ -126,15 +127,49 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script type="text/javascript">
 		$(document).ready(function() {
 
+		/* disable Right Click F12 Ctrl + Shift + I Ctrl + Shift + J Ctrl + U */
+    document.onkeydown = function(e) {
+      if (event.keyCode == 123) {
+        return false;
+      }
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+        return false;
+      }
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+        return false;
+      }
+      if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+        return false;
+      }
+    }
+
 			$('.bulan-merah').hide();
 			$('.clouds2').hide();
 
+			// get audio source
+			var audio  = document.createElement("audio");
+			audio.src  = "sound/ost.mp3";
+
+			// autoplay audio setalah 2 detik
 			setTimeout(function() {
-					$('.bulan').hide();
-			    $('.bulan-merah').show();
-					$('.clouds').hide();
-			    $('.clouds2').show();
+					audio.play();
+				}, 2000);
+
+			// show mugen tsukoyomi
+			setTimeout(function() {
+				$('.bulan').hide();
+				$('.bulan-merah').show();
+				$('.clouds').hide();
+				$('.clouds2').show();
 			}, 5000);
+
+			// hide mugen tsukoyomi after end music
+			setTimeout(function() {
+				$('.bulan').show();
+				$('.bulan-merah').hide();
+				$('.clouds').show();
+				$('.clouds2').hide();
+			}, 126600);
 
 		});
 	</script>

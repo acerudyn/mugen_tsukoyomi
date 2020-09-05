@@ -4,6 +4,7 @@
 <head>
 	<title>Mugen Tsukuyomi</title>
 	<!-- for-mobile-apps -->
+	<meta name="theme-color" content="rgba(255, 0, 0, 0.7)">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="Naruto web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -98,11 +99,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </head>
 
-<body id="body" oncontextmenu="return false;">
-  <!-- disbale right click -->
+<body oncontextmenu="return false;">
+  <!-- disbale right click  -->
 
-	<img class="img-responsive center-block bulan" src="images/moon.png" alt="moon light">
-	<img class="img-responsive center-block bulan-merah" src="images/mugen.png" alt="mugen tsukuyomi">
+	<audio id="myAudio"><source src="sound/ost.mp3" type="audio/mpeg"></audio>
+	<img class="img-responsive center-block bulan" src="images/moon.png" alt="">
+	<img class="img-responsive center-block bulan-merah" src="images/mugen.png" alt="">
 	<div class="stars"></div>
 	<div class="twinkling"></div>
 	<div class="clouds"></div>
@@ -128,7 +130,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		$(document).ready(function() {
 
 			// swal("Genjutsu!", "Click the moon to activate Mugen Tsukuyomi!", "warning");
-			swal("Genjutsu!", "Click button 'OK' to activate Mugen Tsukuyomi!", "warning");
+			swal("Genjutsu!", "Touch the moon to activate Mugen Tsukuyomi!", "warning");
 
 		/* disable Right Click F12 Ctrl + Shift + I Ctrl + Shift + J Ctrl + U */
     document.onkeydown = function(e) {
@@ -148,12 +150,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			$('.bulan-merah').hide();
 			$('.clouds2').hide();
+			var audio = document.getElementById("myAudio");
 
 			// for user google chrome click first
-			$("#body").click(function(){
-					// get audio source
-					var audio  = document.createElement("audio");
-					audio.src  = "sound/ost.mp3";
+			$(".clouds").click(function(){
 					audio.play();
 
 					// show mugen tsukoyomi
@@ -171,6 +171,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							$('.clouds').show();
 							$('.clouds2').hide();
 					};
+
+			});
+
+			$(".bulan-merah").click(function(){
+					audio.pause();
+					audio.currentTime = 0;
+
+					$('.bulan').show();
+					$('.bulan-merah').hide();
+					$('.clouds').show();
+					$('.clouds2').hide();
 
 			});
 

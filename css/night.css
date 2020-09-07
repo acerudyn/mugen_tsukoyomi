@@ -119,7 +119,7 @@
   }
 }
 
-.stars, .twinkling, .clouds, .bulan, .bulan-merah, .clouds2 {
+.stars, .twinkling, .clouds, .bulan, .bulan-merah, .clouds2, .loading {
   position: absolute;
   top: 0;
   left: 0;
@@ -170,6 +170,13 @@
   max-width: 220px;
   max-height: 220px;
   z-index: 2;
+}
+
+.loading {
+  z-index: 5;
+  width: 30px;
+  height: 30px;
+  margin: auto;
 }
 
 .bulan-merah {

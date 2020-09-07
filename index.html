@@ -47,7 +47,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</script>
 	<!-- start-smoth-scrolling -->
 
-	<style type="text/css">
+	 <style type="text/css">
 		body,
 		html {
 			height: 100%;
@@ -55,13 +55,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		}
 
 		.bg {
-			/* The image used */
 			background-image: url("images/sky.jpg");
-
-			/* Full height */
 			height: 100%;
-
-			/* Center and scale the image nicely */
 			background-position: center;
 			background-repeat: no-repeat;
 			background-size: cover;
@@ -99,9 +94,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 </head>
 
-<body oncontextmenu="return false;">
-  <!-- disbale right click -->
+<body>
+  <!-- disbale right click oncontextmenu="return false;" -->
 
+	<img class="img-responsive center-block loading" src="images/loading.gif">
 	<audio id="myAudio"><source src="sound/ost2.mp3" type="audio/mpeg"></audio>
 	<img class="img-responsive center-block bulan" src="images/moon.png" alt="">
 	<img class="img-responsive center-block bulan-merah" src="images/mugen.png" alt="">
@@ -137,6 +133,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 	<script type="text/javascript">
+
+		$(window).on('load', function(){
+			 $('.loading').fadeOut();
+		 });
+
 		$(document).ready(function() {
 
 			// swal("Genjutsu!", "Click the moon to activate Mugen Tsukuyomi!", "warning");

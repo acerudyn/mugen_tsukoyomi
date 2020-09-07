@@ -169,16 +169,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					// show mugen tsukoyomi
 					setTimeout(function() {
 						$('.bulan').hide();
-						$('.bulan-merah').show();
+						$('.bulan-merah').fadeIn(3000);
 						$('.clouds').hide();
-						$('.clouds2').show();
-					}, 1300);
+						$('.clouds2').fadeIn(3000);
+					}, 1000);
 
 					// hide mugen tsukoyomi after end music
 					audio.onended = function() {
-							$('.bulan').show();
+							$('.bulan').fadeIn(3000);
 							$('.bulan-merah').hide();
-							$('.clouds').show();
+							$('.clouds').fadeIn(3000);
 							$('.clouds2').hide();
 					};
 
@@ -188,9 +188,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					audio.pause();
 					audio.currentTime = 0;
 
-					$('.bulan').show();
+					$('.bulan').fadeIn(3000);
 					$('.bulan-merah').hide();
-					$('.clouds').show();
+					$('.clouds').fadeIn(3000);
 					$('.clouds2').hide();
 
 			});
